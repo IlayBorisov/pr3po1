@@ -10,7 +10,7 @@ class TestMortgageCalculator:
         calculator = MortgageCalculator(1000000, 7.5, 10)
         monthly_payment = calculator.calculate_monthly_payment()
         # Ожидаемое значение рассчитано отдельно
-        assert pytest.approx(monthly_payment, 0.01) == 123
+        assert pytest.approx(monthly_payment, 0.01) == 11865.72
 
     def test_zero_interest(self):
         """Тест с нулевой процентной ставкой"""
@@ -30,7 +30,7 @@ class TestMortgageCalculator:
         calculator = MortgageCalculator(2000000, 8, 20)
         overpayment = calculator.calculate_overpayment()
         total_payment = calculator.calculate_total_payment()
-        assert overpayment == pytest.approx(total_payment - 123, 0.01)
+        assert overpayment == pytest.approx(total_payment - 2000000, 0.01)
 
     def test_payment_schedule_length(self):
         """Тест длины графика платежей"""
